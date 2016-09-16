@@ -16,6 +16,9 @@
 - name: Cleaning Previous Download
   file: path=/tmp/s3fs-fuse-{{s3fs_version}}.tar.gz state=absent
 
+- name: Cleaning tmp extract folder
+  file: path=/tmp/s3fs-fuse-{{s3fs_version}} state=absent
+
 - name: Download s3fs sources
   get_url: url={{ s3fs_source }} dest=/tmp/s3fs-fuse-{{s3fs_version}}.tar.gz
 
@@ -27,3 +30,6 @@
 
 - name: Cleaning Download
   file: path=/tmp/s3fs-fuse-{{s3fs_version}}.tar.gz state=absent
+
+- name: Cleaning tmp extract folder
+  file: path=/tmp/s3fs-fuse-{{s3fs_version}} state=absent
